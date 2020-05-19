@@ -31,23 +31,22 @@ def handle_keys(keys):
 
     return libs
 
-# def fill_template(libs):
-#     with open(path, 'r') as file:
-#         contents = file.read()
+def fill_template(libs):
+    with open(path, 'r') as file:
+        contents = file.read()
 
-#     bracket_count = contents.count('{')
-#     for i in range(bracket_count):
-#         start = contents.find('{')
-#         end = contents.find('}', start)
-#         contents = contents[start:end]
+    bracket_count = contents.count('{')
+    for i in range(bracket_count):
+        start = contents.find('{', 0)
+        end = contents.find('}', 0) + 1
+        contents = contents[:start] + libs[i] + contents[end:]
 
-#     return contents
+    return contents
 
+def print_output(stuff):
 
-
-
-# with open('assets/filled.txt', 'w') as file2:
-#     file2.write(contents)
+    with open('assets/filled.txt', 'a') as file2:
+        file2.write(stuff)
 
 
 
@@ -57,5 +56,7 @@ if __name__ == "__main__":
     get_keys(path)
     keys = get_keys(path)
     handle_keys(keys)
-    # libs = handle_keys(keys)
-    # fill_template(libs)
+    libs = handle_keys(keys)
+    fill_template(libs)
+    filled_in = fill_template(libs)
+    print_output(filled_in)
