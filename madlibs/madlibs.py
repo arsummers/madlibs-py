@@ -45,7 +45,7 @@ def fill_template(libs):
 
 def print_output(stuff):
 
-    with open('assets/filled.txt', 'a') as file2:
+    with open('assets/filled.txt', 'w') as file2:
         file2.write(stuff)
 
 
