@@ -8,15 +8,35 @@ def greeting():
 def read_template(path):
     with open(path, 'r') as file:
         contents = file.read()
-    print(contents)
+        keys = []
+        end = None #exists here to be reassigned below
+        bracket_count = contents.count('{')
+
+        for i in range(bracket_count):
+            start = contents.find('{', end) + 1
+            end = contents.find('}', start)
+            key = contents[start:end]
+            keys.append(key)
+
+        print(keys)
+        return keys
 
 
 
-    for i in contents:
-        begin = '{'
-        end = '}'
-        if i == begin:
-            print(contents[])
+def handle_keys(keys):
+    libs = []
+    
+    for i in keys:
+        prompt = input(f'****** enter a {i} ******') 
+        libs.append(prompt)
+
+    print(libs)
+    return libs
+
+def fill_template():
+    pass
+
+
 
 
 # with open('assets/filled.txt', 'w') as file2:
@@ -24,8 +44,9 @@ def read_template(path):
 
 
 
-
 if __name__ == "__main__":
     path = 'assets/template.txt'
     greeting()
     read_template(path)
+    keys = read_template(path)
+    handle_keys(keys)
