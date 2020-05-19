@@ -1,0 +1,8 @@
+README.md
+setup.py
+madlibs/__init__.py
+madlibs/madlibs.py
+madlibs.egg-info/PKG-INFO
+madlibs.egg-info/SOURCES.txt
+madlibs.egg-info/dependency_links.txt
+madlibs.egg-info/top_level.txt
