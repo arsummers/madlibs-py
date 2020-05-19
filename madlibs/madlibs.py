@@ -5,7 +5,7 @@ def greeting():
     *********
     """)
 
-def read_template(path):
+def get_keys(path):
     with open(path, 'r') as file:
         contents = file.read()
         keys = []
@@ -18,23 +18,30 @@ def read_template(path):
             key = contents[start:end]
             keys.append(key)
 
-        print(keys)
         return keys
 
 
 
 def handle_keys(keys):
-    libs = []
+    libs = [] #you know, like madlibs...
     
     for i in keys:
-        prompt = input(f'****** enter a {i} ******') 
+        prompt = input(f"""****** enter a {i} ******""") 
         libs.append(prompt)
 
-    print(libs)
     return libs
 
-def fill_template():
-    pass
+# def fill_template(libs):
+#     with open(path, 'r') as file:
+#         contents = file.read()
+
+#     bracket_count = contents.count('{')
+#     for i in range(bracket_count):
+#         start = contents.find('{')
+#         end = contents.find('}', start)
+#         contents = contents[start:end]
+
+#     return contents
 
 
 
@@ -47,6 +54,8 @@ def fill_template():
 if __name__ == "__main__":
     path = 'assets/template.txt'
     greeting()
-    read_template(path)
-    keys = read_template(path)
+    get_keys(path)
+    keys = get_keys(path)
     handle_keys(keys)
+    # libs = handle_keys(keys)
+    # fill_template(libs)
