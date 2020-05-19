@@ -20,13 +20,13 @@ def get_keys(path):
 
         return keys
 
-
-
 def handle_keys(keys):
     libs = [] #you know, like madlibs...
     
     for i in keys:
-        prompt = input(f"""****** enter a {i} ******""") 
+        prompt = input(f"""
+        ****** enter a {i} ******
+        """) 
         libs.append(prompt)
 
     return libs
@@ -43,11 +43,15 @@ def fill_template(libs):
 
     return contents
 
-def print_output(stuff):
+def return_output(stuff):
 
     with open('assets/filled.txt', 'w') as file2:
         file2.write(stuff)
 
+def print_in_console():
+    with open('assets/filled.txt', 'r') as file2:
+        contents = file2.read()
+        print(contents)
 
 
 if __name__ == "__main__":
@@ -55,8 +59,8 @@ if __name__ == "__main__":
     greeting()
     get_keys(path)
     keys = get_keys(path)
-    handle_keys(keys)
     libs = handle_keys(keys)
     fill_template(libs)
     filled_in = fill_template(libs)
-    print_output(filled_in)
+    return_output(filled_in)
+    print_in_console()
